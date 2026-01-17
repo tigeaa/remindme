@@ -1,0 +1,114 @@
+:root {
+    --danger-red: #ff0000;
+    --warning-yellow: #ffff00;
+    --void-black: #000000;
+    --stark-white: #ffffff;
+}
+
+body {
+    background-color: var(--void-black);
+    color: var(--stark-white);
+    font-family: 'Courier New', Courier, monospace; /* Brutalist font */
+    margin: 0;
+    overflow: hidden; /* No escape */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    z-index: 10;
+    position: relative;
+    border: 5px solid var(--danger-red);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--danger-red);
+    text-shadow: 2px 2px var(--warning-yellow);
+    animation: jitter 0.1s infinite;
+}
+
+@keyframes jitter {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(2px, -2px); }
+}
+
+#timer {
+    font-size: 8rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+button {
+    background-color: var(--danger-red);
+    color: var(--stark-white);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--warning-yellow);
+    color: var(--void-black);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* CHAOS CLASSES */
+
+/* Flashing Background */
+@keyframes seizure-warning {
+    0% { background-color: var(--void-black); }
+    25% { background-color: var(--danger-red); }
+    50% { background-color: var(--warning-yellow); }
+    75% { background-color: var(--stark-white); }
+    100% { background-color: var(--void-black); }
+}
+
+body.chaos-mode {
+    animation: seizure-warning 0.1s infinite;
+}
+
+/* Screen Shake */
+@keyframes violent-shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-20px, -20px) rotate(-5deg); }
+    20% { transform: translate(20px, 20px) rotate(5deg); }
+    30% { transform: translate(-20px, 20px) rotate(-5deg); }
+    40% { transform: translate(20px, -20px) rotate(5deg); }
+    50% { transform: translate(-10px, 10px) rotate(-2deg); }
+    60% { transform: translate(10px, -10px) rotate(2deg); }
+    70% { transform: translate(5px, 5px) rotate(0deg); }
+    80% { transform: translate(-5px, -5px) rotate(0deg); }
+    90% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake-active {
+    animation: violent-shake 0.5s infinite;
+}
+
+/* Floating Word Overlay */
+.floating-text {
+    position: absolute;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--warning-yellow);
+    text-shadow: 4px 4px var(--danger-red);
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+}
